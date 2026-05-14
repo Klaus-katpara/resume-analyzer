@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card p-4 text-dark mb-4">
+    <h2>🎯 Role Match: {{ role|title }}</h2>
+    <h1 class="text-primary">{{ role_score }}%</h1>
+</div>
+
+<div class="card p-4 text-dark mb-4">
+    <h2>📄 Resume Score</h2>
+    <h1 class="text-success">{{ score }}%</h1>
+</div>
+
+<div class="card p-4 mb-4 text-dark">
+    <h4>✅ Detected Skills</h4>
+    {% for skill in skills %}
+        <span class="badge bg-success m-1">{{ skill }}</span>
+    {% endfor %}
+</div>
+
+<div class="card p-4 mb-4 text-dark">
+    <h4>❌ Missing Skills</h4>
+    {% for skill in missing %}
+        <span class="badge bg-danger m-1">{{ skill }}</span>
+    {% endfor %}
+</div>
+
+<div class="alert alert-info">
+    {{ message }}
+</div>
+
+<div class="card p-4 text-dark">
+    <h5>Extracted Resume Text</h5>
+    <div style="max-height:300px; overflow:auto;">
+        <pre>{{ text }}</pre>
+    </div>
+</div>
+
+<a href="/download/?role={{ role }}&score={{ score }}&role_score={{ role_score }}&skills={{ skills|join:', ' }}&missing={{ missing|join:', ' }}"
+class="btn btn-dark mt-3">
+📥 Download Report
+</a>
+
+<a href="/upload/" class="btn btn-light mt-3">Upload Another</a>
+
+{% endblock %}

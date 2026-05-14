@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-5">
+        <div class="card p-4 text-dark">
+
+            <h3 class="text-center mb-4">📂 Upload Resume</h3>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label>Select Job Role</label>
+                    <select name="role" class="form-control">
+                        <option value="data analyst">Data Analyst</option>
+                        <option value="web developer">Web Developer</option>
+                        <option value="ml engineer">ML Engineer</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Choose PDF File</label>
+                    <input type="file" name="file" class="form-control" required>
+                </div>
+
+                <button class="btn btn-primary w-100">Upload & Analyze</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
