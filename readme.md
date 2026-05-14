@@ -19,9 +19,6 @@ A Django-based web application that analyzes resumes and provides:
 ## 📸 Screenshots
 (Add 3–4 screenshots)
 
-## 🌐 Live Demo
-(Add your deployed link)
-
 ## 📌 Future Improvements
 - AI-based NLP (spaCy / transformers)
 - Resume scoring using ML
